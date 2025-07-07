@@ -1,24 +1,10 @@
-
 # 概要
 
-CSScriptLauncher.exe：C#スクリプトを実行する自作exe。csi.exeの簡易版に過ぎないが、csi.exeの再頒布方法がわからなかったので作成した。
+C#スクリプトを実行するランチャー。
 
-使用方法としては、次のコマンドを実行する。＜＞は可変値。
-CSScriptLauncher.exe ＜.csxのフルパス＞ ＜コマンドラインオプション＞
+dotnet-scriptがあれば不要だが、それは.NET SDKなどの別途インストールが必要なので使える環境が限られてしまう。
 
-例："E:\tool\CSScriptLauncher.exe" "E:\tool\tool.csx"
+そのため、ランタイム同梱で発行すればどの環境でも使用できるように、ランチャーを作成した。
 
-
-# .csxファイルTIPS
-
-## コマンドライン引数
-
-.csxファイルに次のように記載することでコマンドライン引数を取得可能。
-
-    string[] CommandLineOptions = Environment.GetCommandLineArgs().Skip(2).ToArray();
-
-CSScriptLauncher.exeは第1引数にスクリプトのパスを受け取る。そのため、第2引数以降が本スクリプト向けのオプションなので、2つSkipするとコマンドラインの配列になる。
-
-## アプリケーション終了コード
-
-.csxファイルでreturn 0;のように数値を返すと、それがアプリケーション終了コードになる。
+1. DotNetFrameworkフォルダ:.NET Frameworkで実行するタイプ
+1. DotNetフォルダ:.NETで実行するタイプ
